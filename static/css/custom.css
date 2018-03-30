@@ -1,0 +1,32 @@
+ul.image-gallery {
+  list-style: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+  background-color: #FFF;
+}
+
+ul.image-gallery:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+ul.image-gallery li {
+  list-style: none;
+  display: block;
+  float: left;
+}
+
+ul.image-gallery li img {
+  display: block;
+}
+.crop {
+height: 300px;
+overflow: hidden;
+width: 200px;
+}
+.crop img {
+height: auto;
+width: 100px;
+}
