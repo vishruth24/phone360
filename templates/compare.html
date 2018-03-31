@@ -1,0 +1,235 @@
+<!DOCTYPE HTML>
+<!--
+	Hielo by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Phone360</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/static/css/main.css" />
+		<link rel="stylesheet" href="/static/css/custom.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="/index">Phone360</a></div>
+				<a href="#menu">Menu</a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="/index">Home</a></li>
+					<li><a href="/brand">Phones</a></li>
+					<li><a href="/compare">Compare Me</a></li>
+				</ul>
+			</nav>
+
+		<!-- One -->
+			<section id="One" class="wrapper style3">
+				<div class="inner">
+					<header class="align-center">
+						<p>360 compare zone</p>
+						<h2>{{ name }}</h2>
+					</header>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper style2">
+				<div class="inner">
+					<div class="box">
+						<!-- <div class="content"> -->
+							<header class="align-center">
+								<p>Comparison for nerds</p>
+								<h2>Comparison</h2>
+							</header>
+
+
+
+				<!-- Gallery -->
+				<style>
+
+.table{
+	max-width: 100%;
+
+}
+.img{
+width:  100px;
+    height: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+	}			</style>
+
+    <div style="overflow: auto;">
+				<center><div style="max-width:100%;float:left">
+
+
+
+						{%  set i=data1 %}
+                        {%  set d2=data2 %}
+{% set j=1 %}
+<!-- {% set k=1 %} -->
+<img src="{{ i[0][32] }}" style="padding-left: 300px;padding-right: 200px;"></img>
+<img src="{{ d2[0][32] }}"></img><br><br>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col" style="text-align:center">Details</th>
+      <th scope="col" style="text-align:center">Specifications</th>
+      <th scope="col"></th>
+  </tr>
+</thead>
+  <tbody>
+  <tr>
+	  <td>Brand</td>
+<td>{{ i[0][j] }}</td>
+<td>{{ d2[0][j] }}</td>
+{% set j=j+1 %}
+
+</tr>
+<tr>
+	<td>Model</td>
+<td>{{ i[0][j] }}</td>
+<td>{{ d2[0][j] }}</td>
+{% set j=j+1 %}
+</tr>
+<tr>
+	<td>Network Technology</td>
+<td>{{ i[0][j] }}</td>
+<td>{{ d2[0][j] }}</td>
+
+{% set j=j+3 %}
+</tr>
+<tr>
+	<td>Announced</td>
+<td>{{ i[0][j] }}</td>
+<td>{{ d2[0][j] }}</td>
+{% set j=j+2 %}
+</tr>
+<tr>
+	<td>Dimension</td>
+<td>{{ i[0][j] }}</td>
+<td>{{ d2[0][j] }}</td>
+{% set j=j+2 %}
+</tr>
+<tr>
+	<td>SIM</td>
+<td>{{ i[0][j] }}</td>
+<td>{{ d2[0][j] }}</td>
+{% set j=j+1 %}
+</tr>
+<tr>
+	<td>Display Type</td>
+<td>{{ i[0][j] }}</td>
+<td>{{ d2[0][j] }}</td>
+{% set j=j+1 %}
+
+</tr>
+
+<tr>
+	<td>Display Resolution</td>
+<td>{{ i[0][j] }}</td>
+<td>{{ d2[0][j] }}</td>
+{% set j=j+2 %}
+</tr>
+
+<tr>
+	<td>OS</td>
+<td>{{ i[0][j] }}</td>
+<td>{{ d2[0][j] }}</td>
+{% set j=j+1 %}
+</tr>
+<tr>
+	<td>CPU</td>
+<td>{{ i[0][j] }}</td>
+<td>{{ d2[0][j] }}</td>
+{% set j=j+2 %}
+</tr>
+<tr>
+	<td>GPU</td>
+<td>{{ i[0][j] }}</td>
+<td>{{ d2[0][j] }}</td>
+{% set j=j+3 %}
+</tr>
+<tr>
+	<td>RAM</td>
+<td>{{ i[0][j] }}</td>
+<td>{{ d2[0][j] }}</td>
+{% set j=j+2 %}
+</tr>
+<tr>
+	<td>Primary Camera</td>
+<td>{{ i[0][j] }}</td>
+<td>{{ d2[0][j] }}</td>
+{% set j=j+7 %}
+
+</tr>
+
+<tr>
+<td>Battery</td>
+<td>{{ i[0][j] }}</td>
+<td>{{ d2[0][j] }}</td>
+{% set j=j+2 %}
+
+</tr>
+<tr>
+	<td>Approx Price</td>
+
+<td>{% set val1=i[0][j]|int %}
+
+{% set val1=val1*80 %}
+	Rs.{{ val1 }}
+    <td>{% set val2=d2[0][j]|int %}
+
+    {% set val2=val2*80 %}
+    	Rs.{{ val2 }}</td>
+
+</td>
+
+
+</tr>
+
+</table>
+
+</div>
+
+</div></center>
+
+
+
+
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+					</ul>
+				</div>
+				<div class="copyright">
+					&copy; Untitled. All rights reserved.
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="/static/js/jquery.min.js"></script>
+			<script src="/static/js/jquery.scrollex.min.js"></script>
+			<script src="/static/js/skel.min.js"></script>
+			<script src="/static/js/util.js"></script>
+			<script src="/static/js/main.js"></script>
+
+	</body>
+</html>

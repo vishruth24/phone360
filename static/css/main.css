@@ -2974,7 +2974,7 @@
 				.wrapper.style2 input[type="button"].special,
 				.wrapper.style2 button.special,
 				.wrapper.style2 .button.special {
-					background-color: #8a4680;
+					background-color: #4747b2;
 					color: #ffffff !important;
 				}
 
@@ -2983,7 +2983,7 @@
 					.wrapper.style2 input[type="button"].special:hover,
 					.wrapper.style2 button.special:hover,
 					.wrapper.style2 .button.special:hover {
-						background-color: #9b4f90;
+						background-color: #6666ff;
 					}
 
 					.wrapper.style2 input[type="submit"].special:active,
@@ -3081,7 +3081,7 @@
 				}
 
 			.wrapper.style2 table th {
-				color: #000;
+				color: #FFF;
 			}
 
 			.wrapper.style2 table thead {
