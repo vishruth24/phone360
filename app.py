@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request,url_for,redirect
+from flask import Flask, render_template, request,url_for,redirect,flash
 import sqlite3 as sql
 app = Flask(__name__)
 
@@ -92,6 +92,39 @@ def comp():
         conn.close()
         return render_template('comp.html',data=brand)
 
+@app.route('/insert',methods=["POST","GET"])
+def insert():
+    if request.method == "POST":
+        conn=sql.connect("static/phone.db")
+        c=conn.cursor()
+        brand1=request.form['brand']
+        Model=request.form['Model']
+        Network=request.form['Network']
+        Dimension=request.form['Dimension']
+        Announced=request.form['Announced']
+        SIM=request.form['SIM']
+        Type=request.form['Type']
+        Resolution=request.form['Resolution']
+        OS=request.form['OS']
+        CPU=request.form['CPU']
+        GPU=request.form['GPU']
+        RAM=request.form['RAM']
+        Camera=request.form['Camera']
+        Battery=request.form['Battery']
+        Price=request.form['Price']
+        image=request.form['image']
+        Price=str(int(Price)/80)
+        c.execute('INSERT into phones (brand,model,network_technology,announced,dimentions,SIM,display_type,display_resolution,OS,CPU,GPU,RAM,\
+        primary_camera,battery,approx_price_EUR,img_url) values ((?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),\
+        (?))',[brand1,Model,Network,Dimension,Announced,SIM,Type,Resolution,OS,CPU,GPU,RAM,Camera,Battery,Price,image])
+        conn.commit()
+        c.close
+        flash("Phone inserted successfully")
+        conn.close()
+        return render_template('insert.html')
+    if request.method=="GET":
+        return render_template('insert.html')
+
 @app.route('/useless',methods=["POST","GET"])
 def useless():
     if request.method=="POST":
@@ -101,6 +134,8 @@ def useless():
         return redirect("compare/{}/{}".format(m1,m2))
     else:
         return "Hi there! Hope youre having a great day"
+
+app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 if __name__ == '__main__':
   app.run(host='127.0.0.1', port=8000, debug=True)
