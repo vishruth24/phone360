@@ -135,6 +135,37 @@ def useless():
     else:
         return "Hi there! Hope youre having a great day"
 
+@app.route('/filter',methods=["POST","GET"])
+def filter():
+    if request.method=="POST":
+        comp=request.form["comp1"]
+        cor=request.form["cores"]
+        ram123=request.form["ram123"]
+        # bat=request.form["bat"]
+        conn=sql.connect("static/phone.db")
+        c=conn.cursor()
+        c.execute('SELECT img_url,model,brand FROM phones where brand = (?) and CPU like (?) and RAM \
+        like (?)',[comp,"%"+cor+"%","%"+ram123+"%"])
+        images = c.fetchall()
+        c.close
+        conn.close()
+        return render_template("phones2.html",image=images)
+
+
+
+    else:
+        conn=sql.connect("static/phone.db")
+        c=conn.cursor()
+        c.execute('SELECT distinct(brand) FROM phones')
+        brand = c.fetchall()
+        c.close
+        conn.close()
+        return render_template('filter.html',data=brand)
+
+
+
+
+
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 if __name__ == '__main__':
